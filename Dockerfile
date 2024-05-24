@@ -1,4 +1,5 @@
 FROM php:8.2.0-apache
+
 WORKDIR /var/www/html
 
 # Mod Rewrite
@@ -24,3 +25,15 @@ RUN docker-php-ext-install gettext intl pdo_mysql gd
 
 RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
+
+# Copy the entrypoint script
+COPY ./laravel-app/docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# Make the entrypoint script executable
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set the entrypoint
+# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+# Default command
+CMD ["apache2-foreground"]

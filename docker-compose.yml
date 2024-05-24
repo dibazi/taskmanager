@@ -8,11 +8,11 @@ services:
     ports:
       - 9000:80
   
-  mysql_db_ld10:
+  taskmanager_db:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: ld10
+      MYSQL_DATABASE: taskmanager
     ports:
     - 3306:3306
   
