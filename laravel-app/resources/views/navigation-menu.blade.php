@@ -129,11 +129,15 @@
 
                             <span class="inline-flex rounded-md">
                                 <!-- Logout functionality -->
-                                <form method="POST" action="{{ route('logout') }}" x-data class="inline-block">
+                                <x-nav-link href="{{ route('logout') }}" :active="request()->routeIs('logout')" 
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </x-nav-link>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
-                                    <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                        {{ __('Log Out') }}
-                                    </x-dropdown-link>
+                                </form>
+
                                 </form>
                             </span>
 
