@@ -55,4 +55,4 @@ Before you begin, ensure you have the following installed on your system:
 ## Running Tests
 To run the application's tests, use the following command:
 ```sh
-docker-compose exec app php artisan test
+docker-compose exec laravel-docker php artisan test
