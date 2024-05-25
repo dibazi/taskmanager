@@ -30,22 +30,22 @@ Before you begin, ensure you have the following installed on your system:
 
 4. **Install PHP dependencies:**
     ```sh
-    docker-compose exec app composer install
+    docker-compose exec laravel-docker composer install
     ```
 
 5. **Generate the application key:**
     ```sh
-    docker-compose exec app php artisan key:generate
+    docker-compose exec laravel-docker php artisan key:generate
     ```
 
 6. **Run database migrations:**
     ```sh
-    docker-compose exec app php artisan migrate
+    docker-compose exec laravel-docker php artisan migrate
     ```
 
 ## Usage
 
-- Access the application at `http://localhost:9000`
+- Access the application at `http://localhost:9000/public/tasks`
 - Access phpMyAdmin at `http://localhost:9001` (use the credentials from your `.env` file)
 
 ## Configuration
